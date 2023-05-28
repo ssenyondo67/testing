@@ -66,8 +66,13 @@ input[type="submit"] {
 
         const serviceID = 'default_service';
         const templateID = 'template_mbseq2p';
+        const templateParams ={
+          contact_number:document.getElementById('contact_number').value,
+          user_name:document.getElementById('user_name').value,
+          user_email:document.getElementById('user_email').value
+        }
 
-        emailjs.sendForm(serviceID, templateID, this)
+        emailjs.send(serviceID, templateID, templateParams)
             .then(() => {
             btn.value = 'Send Email';
             alert('Sent!');
